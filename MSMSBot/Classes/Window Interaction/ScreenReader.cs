@@ -38,9 +38,22 @@ namespace MSMSBot.Classes.Window_Interaction
 
         public static Image CaptureWindow()
         {
-            return cropWindowFrame(sc.CaptureWindow(Handle()));
+            return sc.CaptureWindow(Handle());
         }
 
+        public static Image CaptureBoard()
+        {
+            System.Drawing.Image GameScreen = ScreenReader.CaptureWindow();
+
+            int Top = 81;
+            int Bottom = 39;
+            int Left = 38;
+            int Right = 36;
+
+            Rectangle r = new Rectangle(Left, Top, GameScreen.Width - Left - Right, GameScreen.Height - Top - Bottom);
+
+            return cropImage(GameScreen, r);
+        }
 
         public static BitmapSource GetImageStream(Image myImage)
         {
@@ -64,7 +77,7 @@ namespace MSMSBot.Classes.Window_Interaction
         internal static extern bool DeleteObject(IntPtr value);
 
 
-        private static Image cropImage(Image img, Rectangle cropArea)
+        public static Image cropImage(Image img, Rectangle cropArea)
         {
             Bitmap bmpImage = new Bitmap(img);
             Bitmap bmpCrop = bmpImage.Clone(cropArea, bmpImage.PixelFormat);
