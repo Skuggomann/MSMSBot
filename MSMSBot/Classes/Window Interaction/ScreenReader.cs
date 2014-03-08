@@ -46,9 +46,9 @@ namespace MSMSBot.Classes.Window_Interaction
             System.Drawing.Image GameScreen = ScreenReader.CaptureWindow();
 
             int Top = 81;
-            int Bottom = 39;
+            int Bottom = 40;
             int Left = 38;
-            int Right = 36;
+            int Right = 37;
 
             Rectangle r = new Rectangle(Left, Top, GameScreen.Width - Left - Right, GameScreen.Height - Top - Bottom);
 

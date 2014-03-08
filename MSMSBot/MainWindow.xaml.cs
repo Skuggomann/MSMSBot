@@ -1,5 +1,4 @@
-﻿using AForge.Imaging;
-using MSMSBot.Classes.Window_Interaction;
+﻿using MSMSBot.Classes.Window_Interaction;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,34 +28,20 @@ namespace MSMSBot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Drawing.Image img = ScreenReader.CaptureBoard();
-            
-
+            System.Drawing.Image img = ScreenReader.CaptureBoard();  
             Bitmap test = new Bitmap(img);
-            Bitmap t1 = Properties.Resources.Clicked;// ScreenGateway.UnClicked;//new Bitmap("t1.png");
-
-
-
-            Bitmap t2 = test;
 
             // create filter
             AForge.Imaging.Filters.Grayscale filter = new AForge.Imaging.Filters.GrayscaleBT709();
-            //AForge.Imaging.Filters.Grayscale filter = new AForge.Imaging.Filters.Grayscale(1.0, 1.0, 1.0);
-            //AForge.Imaging.Filters.Median filter = new AForge.Imaging.Filters.Median();
-
             // apply filter
             System.Drawing.Bitmap newImage1 = filter.Apply(test);
-            System.Drawing.Bitmap newImage2 = filter.Apply(test);
+
+            ImageDisplay.Source = ScreenReader.GetImageStream(newImage1);
 
 
 
-            ExhaustiveTemplateMatching tm = new ExhaustiveTemplateMatching();// (1.0f);
-            //TemplateMatch[] matchings = tm.ProcessImage(newImage1, newImage2, new System.Drawing.Rectangle(220,100,200,200));
-            //DebugText.Text = matchings[0].Similarity.ToString();
-
-
-
-            ImageDisplay.Source = ScreenReader.GetImageStream(test);
+            // Show char array showing layout in debug field:
+            DebugText.Text = ScreenGateway.BoardToString(ScreenGateway.GetBoardLayout());
         }
     }
 }
