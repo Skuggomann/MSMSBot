@@ -29,11 +29,11 @@ namespace MSMSBot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Drawing.Image img = ScreenReader.CaptureWindow();
+            System.Drawing.Image img = ScreenReader.CaptureBoard();
             
 
             Bitmap test = new Bitmap(img);
-            Bitmap t1 = Properties.Resources.TestImage;// ScreenGateway.UnClicked;//new Bitmap("t1.png");
+            Bitmap t1 = Properties.Resources.Clicked;// ScreenGateway.UnClicked;//new Bitmap("t1.png");
 
 
 
@@ -56,7 +56,7 @@ namespace MSMSBot
 
 
 
-            ImageDisplay.Source = ScreenReader.GetImageStream(t1);
+            ImageDisplay.Source = ScreenReader.GetImageStream(test);
         }
     }
 }
