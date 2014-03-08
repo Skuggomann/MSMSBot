@@ -35,64 +35,67 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Controls">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Controls.dll</HintPath>
     </Reference>
     <Reference Include="AForge.DebuggerVisualizers %282010%29">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.DebuggerVisualizers (2010).dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.DebuggerVisualizers (2010).dll</HintPath>
     </Reference>
     <Reference Include="AForge.Fuzzy">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Fuzzy.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Fuzzy.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Genetic">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Genetic.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Genetic.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Imaging.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging.Formats">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Imaging.Formats.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Imaging.Formats.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging.IPPrototyper">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Imaging.IPPrototyper.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Imaging.IPPrototyper.dll</HintPath>
     </Reference>
     <Reference Include="AForge.MachineLearning">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.MachineLearning.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Math.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Neuro">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Neuro.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Neuro.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Robotics.Lego">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Robotics.Lego.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Robotics.Lego.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Robotics.Surveyor">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Robotics.Surveyor.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Robotics.Surveyor.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Robotics.TeRK">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Robotics.TeRK.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Robotics.TeRK.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.Kinect">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Video.Kinect.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Video.Kinect.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.VFW">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Video.VFW.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Video.VFW.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.Ximea">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Video.Ximea.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Video.Ximea.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Vision">
-      <HintPath>..\..\..\..\..\..\..\..\Users\AuðunVetle\Desktop\Release\AForge.Vision.dll</HintPath>
+      <HintPath>..\..\..\..\aforge\Release\AForge.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="aima">
+      <HintPath>.\aima.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -122,6 +125,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\AI\AI.cs" />
     <Compile Include="Classes\Window Interaction\ScreenCapture.cs" />
     <Compile Include="Classes\Window Interaction\ScreenGateway.cs" />
     <Compile Include="Classes\Window Interaction\ScreenReader.cs" />
@@ -157,9 +161,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\AI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\TestImage.bmp" />
   </ItemGroup>
