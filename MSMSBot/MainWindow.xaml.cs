@@ -33,11 +33,11 @@ namespace MSMSBot
             
 
             Bitmap test = new Bitmap(img);
-            Bitmap t1 = ScreenGateway.UnClicked;//new Bitmap("t1.png");
+            Bitmap t1 = Properties.Resources.TestImage;// ScreenGateway.UnClicked;//new Bitmap("t1.png");
 
-            
 
-            Bitmap t2 = clone;
+
+            Bitmap t2 = test;
 
             // create filter
             AForge.Imaging.Filters.Grayscale filter = new AForge.Imaging.Filters.GrayscaleBT709();
