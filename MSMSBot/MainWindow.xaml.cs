@@ -1,4 +1,5 @@
-﻿using MSMSBot.Classes.Window_Interaction;
+﻿using MSMSBot.Classes.AI;
+using MSMSBot.Classes.Window_Interaction;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -42,6 +43,12 @@ namespace MSMSBot
 
             // Show char array showing layout in debug field:
             DebugText.Text = ScreenGateway.BoardToString(ScreenGateway.GetBoardLayout());
+        }
+
+        private void btnCSPClick(object sender, RoutedEventArgs e)
+        {
+            AI test = new AI();
+            DebugText.Text = test.Backtrack();
         }
     }
 }
