@@ -49,7 +49,7 @@ namespace MSMSBot.Classes.Window_Interaction
         }
         */
 
-        public enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Bomb, Unknown};
+        public enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Unknown, Bomb};
 
 
         static ScreenGateway()
