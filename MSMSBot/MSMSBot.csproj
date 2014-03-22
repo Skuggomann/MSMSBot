@@ -165,7 +165,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Nr4.bmp" />
+    <Resource Include="Resources\Nr5.bmp" />
+    <Resource Include="Resources\Nr6.bmp" />
+    <Resource Include="Resources\Nr7.bmp" />
+    <Resource Include="Resources\Nr8.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TestImage.bmp" />
   </ItemGroup>

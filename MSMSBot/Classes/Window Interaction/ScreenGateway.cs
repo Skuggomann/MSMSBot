@@ -21,9 +21,7 @@ namespace MSMSBot.Classes.Window_Interaction
         private static Bitmap UnClicked;
         private static Bitmap Flag;
 
-        private static Bitmap Nr1;
-        private static Bitmap Nr2;
-        private static Bitmap Nr3;
+        private static Bitmap Nr1, Nr2, Nr3, Nr4, Nr5, Nr6, Nr7, Nr8;
 
         private static List<Point> BombLocations = new List<Point>();
 
@@ -63,6 +61,11 @@ namespace MSMSBot.Classes.Window_Interaction
             Nr1 = GrayscaleFilter.Apply(Properties.Resources.Nr1);
             Nr2 = GrayscaleFilter.Apply(Properties.Resources.Nr2);
             Nr3 = GrayscaleFilter.Apply(Properties.Resources.Nr3);
+            Nr4 = GrayscaleFilter.Apply(Properties.Resources.Nr4);
+            Nr5 = GrayscaleFilter.Apply(Properties.Resources.Nr5);
+            Nr6 = GrayscaleFilter.Apply(Properties.Resources.Nr6);
+            Nr7 = GrayscaleFilter.Apply(Properties.Resources.Nr7);
+            Nr8 = GrayscaleFilter.Apply(Properties.Resources.Nr8);
 
             // Get rows and colums:
             GameBoard = GrayscaleFilter.Apply(new Bitmap(ScreenReader.CaptureBoard()));
@@ -100,6 +103,26 @@ namespace MSMSBot.Classes.Window_Interaction
                     else if (ImageSearch(Nr3, w, h) == 1)
                     {
                         board[h, w] = Square.Three;
+                    }
+                    else if (ImageSearch(Nr4, w, h) == 1)
+                    {
+                        board[h, w] = Square.Four;
+                    }
+                    else if (ImageSearch(Nr5, w, h) == 1)
+                    {
+                        board[h, w] = Square.Five;
+                    }
+                    else if (ImageSearch(Nr6, w, h) == 1)
+                    {
+                        board[h, w] = Square.Six;
+                    }
+                    else if (ImageSearch(Nr7, w, h) == 1)
+                    {
+                        board[h, w] = Square.Seven;
+                    }
+                    else if (ImageSearch(Nr8, w, h) == 1)
+                    {
+                        board[h, w] = Square.Eight;
                     }
                     else
                     {
