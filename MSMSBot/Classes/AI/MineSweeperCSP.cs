@@ -18,9 +18,8 @@ namespace MSMSBot.Classes.AI
 			//super ;
 		}
 
-        public static CSP getMap()
+        public static CSP getMap(ScreenGateway.Square[,] board)
         {
-            if (instance != null) return instance;
 
             ArrayList variables = new ArrayList();
             for (int col = 0; col < 9; col++)
@@ -42,7 +41,7 @@ namespace MSMSBot.Classes.AI
 
 
 
-            Constraint mineSweeperConstraints = new MineSweeperConstraints(ScreenGateway.GetBoardLayout());
+            Constraint mineSweeperConstraints = new MineSweeperConstraints(board);
 
             instance = new MineSweeperCSP(variables, mineSweeperConstraints, domains);
             return instance;

@@ -48,7 +48,7 @@ namespace MSMSBot
         private void btnCSPClick(object sender, RoutedEventArgs e)
         {
             AI test = new AI();
-            DebugText.Text = test.Backtrack();
+            test.nextMove();
         }
     }
 }
