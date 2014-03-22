@@ -10,15 +10,20 @@ namespace MSMSBot.Classes.AI
 {
     class MineSweeperCSP : CSP
     {
-        static private MineSweeperCSP instance = null;
+        private MineSweeperCSP instance = null;
 
-        MineSweeperCSP(ArrayList variables, Constraint constraints, Domain domains)
+        public MineSweeperCSP(ArrayList variables, Constraint constraints, Domain domains)
             : base(variables, constraints, domains)
 		{
 			//super ;
 		}
 
-        public static CSP getMap(ScreenGateway.Square[,] board)
+        public MineSweeperCSP()
+        {
+            //wat
+        }
+
+        public CSP getMap(ScreenGateway.Square[,] board)
         {
 
             ArrayList variables = new ArrayList();
@@ -26,6 +31,7 @@ namespace MSMSBot.Classes.AI
             {
                 for (int row = 0; row < 9; row++)
                 {
+                    if(nextToNumber(row,col,board))
                     variables.Add("point"+ row + "" + col);
                 }
             }
@@ -45,6 +51,52 @@ namespace MSMSBot.Classes.AI
 
             instance = new MineSweeperCSP(variables, mineSweeperConstraints, domains);
             return instance;
+        }
+
+        private bool nextToNumber(int row, int col, ScreenGateway.Square[,] board)
+        {
+            //NW
+            if (isNumber(row - 1, col - 1, board))
+                return true;
+            //N
+            if (isNumber(row - 1, col, board))
+                return true;
+            //NE
+            if (isNumber(row - 1, col + 1, board))
+                return true;
+            //E
+            if (isNumber(row, col + 1, board))
+                return true;
+            //SE
+            if (isNumber(row + 1, col + 1, board))
+                return true;
+            //S
+            if (isNumber(row + 1, col, board))
+                return true;
+            //SW
+            if (isNumber(row + 1, col - 1, board))
+                return true;
+            //W
+            if (isNumber(row, col - 1, board))
+                return true;
+
+            return false;
+        }
+        private bool isNumber(int row, int col, ScreenGateway.Square[,] board)
+        {
+            if (row < 0 || row >= 9 || col < 0 || col >= 9)
+                return false;
+
+            if( board[row,col] == ScreenGateway.Square.One      ||
+                board[row,col] == ScreenGateway.Square.Two      ||
+                board[row,col] == ScreenGateway.Square.Three    ||
+                board[row,col] == ScreenGateway.Square.Four     ||
+                board[row,col] == ScreenGateway.Square.Five     ||
+                board[row,col] == ScreenGateway.Square.Six      ||
+                board[row,col] == ScreenGateway.Square.Seven    ||
+                board[row,col] == ScreenGateway.Square.Eight)
+                return true;
+            return false;
         }
     }
 }
