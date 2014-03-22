@@ -12,6 +12,7 @@ namespace MSMSBot.Classes.Window_Interaction
     static class ScreenGateway
     {
         private static int BlockHeight = 18;
+        private static int HalfBlock = BlockHeight / 2;
 
         // create filter
         private static AForge.Imaging.Filters.Grayscale GrayscaleFilter = new AForge.Imaging.Filters.GrayscaleBT709();
@@ -105,29 +106,17 @@ namespace MSMSBot.Classes.Window_Interaction
                         board[h, w] = Square.Unknown;
                         //throw new Exception("No matches found in squere: (" + x + ", " + y + ")");
                     }
-
-
                 }
             }
             //Debug.WriteLine("Nr of things found: " + found, "TestImageRecognition()");
-
 
             foreach (Point p in BombLocations)
             {
                 board[p.X, p.Y] = Square.Bomb;
             }
 
-
-
-
             return board;
         }
-
-
-
-
-
-
 
 
 
@@ -159,11 +148,19 @@ namespace MSMSBot.Classes.Window_Interaction
 
 
         // Clicks a squere on the minesweeper map
-        public static void ClickSquere(bool RightClick, Point Cord)
+        public static void ClickSquere(Point Cord, bool LeftClick = true)
         {
-           //TODO: this
-
+            ClickSquerep(Cord.X, Cord.Y, LeftClick);
         }
+        public static void ClickSquerep(int Row, int Column, bool LeftClick = true)
+        {
+            Rectangle temp = GetRectangle(Column, Row);
+            temp.X += 30 + HalfBlock;
+            temp.Y += 30 + HalfBlock;
+
+            ScreenClicker.ClickOnPoint(ScreenReader.Handle(), new Point(temp.X, temp.Y), LeftClick);
+        }
+
 
         // Adds the cordinates of a squere to the list containgin all cordinates of bombs
         public static void MarkSquereAsBomb(Point bomb)
