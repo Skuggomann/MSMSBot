@@ -173,9 +173,9 @@ namespace MSMSBot.Classes.Window_Interaction
         // Clicks a squere on the minesweeper map
         public static void ClickSquere(Point Cord, bool LeftClick = true)
         {
-            ClickSquerep(Cord.X, Cord.Y, LeftClick);
+            ClickSquere(Cord.X, Cord.Y, LeftClick);
         }
-        public static void ClickSquerep(int Row, int Column, bool LeftClick = true)
+        public static void ClickSquere(int Row, int Column, bool LeftClick = true)
         {
             Rectangle temp = GetRectangle(Column, Row);
             temp.X += 30 + HalfBlock;

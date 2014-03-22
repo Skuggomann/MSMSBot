@@ -39,7 +39,7 @@ namespace MSMSBot
 
             ImageDisplay.Source = ScreenReader.GetImageStream(newImage1);
 
-            //ScreenGateway.ClickSquerep(1, 8);
+            //ScreenGateway.ClickSquere(1, 8);
 
             // Show char array showing layout in debug field:
             DebugText.Text = ScreenGateway.BoardToString(ScreenGateway.GetBoardLayout());
