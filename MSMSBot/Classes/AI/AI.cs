@@ -10,10 +10,14 @@ namespace MSMSBot.Classes.AI
     class AI
     {
         CSP drasl;
-        AI()
+        public AI()
         {
-            drasl = new CSP();
+            drasl = MineSweeperCSP.getMap();
+        }
 
+        public Assignment Backtrack()
+        {
+            return drasl.backTrackingSearch();
         }
     }
 }

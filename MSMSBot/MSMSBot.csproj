@@ -126,6 +126,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\AI\AI.cs" />
+    <Compile Include="Classes\AI\MineSweeperCSP.cs" />
+    <Compile Include="Classes\AI\MineSweeperConstraints.cs" />
     <Compile Include="Classes\Window Interaction\ScreenCapture.cs" />
     <Compile Include="Classes\Window Interaction\ScreenGateway.cs" />
     <Compile Include="Classes\Window Interaction\ScreenReader.cs" />
