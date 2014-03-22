@@ -24,6 +24,7 @@ namespace MSMSBot.Classes.Window_Interaction
         private static Bitmap Nr2;
         private static Bitmap Nr3;
 
+        private static List<Point> BombLocations = new List<Point>();
 
         public static int H = 9;
         public static int W = 9;
@@ -110,6 +111,15 @@ namespace MSMSBot.Classes.Window_Interaction
             }
             //Debug.WriteLine("Nr of things found: " + found, "TestImageRecognition()");
 
+
+            foreach (Point p in BombLocations)
+            {
+                board[p.X, p.Y] = Square.Bomb;
+            }
+
+
+
+
             return board;
         }
 
@@ -154,6 +164,17 @@ namespace MSMSBot.Classes.Window_Interaction
            //TODO: this
 
         }
+
+        // Adds the cordinates of a squere to the list containgin all cordinates of bombs
+        public static void MarkSquereAsBomb(Point bomb)
+        {
+            BombLocations.Add(bomb);
+        }
+        public static void MarkSquereAsBomb(int Row, int Column)
+        {
+            MarkSquereAsBomb(new Point(Row, Column));
+        }
+
 
         // Changes the pixel format of a Bitmap file.
         private static Bitmap Reformat(Bitmap Original)
