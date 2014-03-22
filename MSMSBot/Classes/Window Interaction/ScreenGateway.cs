@@ -12,6 +12,7 @@ namespace MSMSBot.Classes.Window_Interaction
     static class ScreenGateway
     {
         private static int BlockHeight = 18;
+        private static int HalfBlock = BlockHeight / 2;
 
         // create filter
         private static AForge.Imaging.Filters.Grayscale GrayscaleFilter = new AForge.Imaging.Filters.GrayscaleBT709();
@@ -20,9 +21,7 @@ namespace MSMSBot.Classes.Window_Interaction
         private static Bitmap UnClicked;
         private static Bitmap Flag;
 
-        private static Bitmap Nr1;
-        private static Bitmap Nr2;
-        private static Bitmap Nr3;
+        private static Bitmap Nr1, Nr2, Nr3, Nr4, Nr5, Nr6, Nr7, Nr8;
 
         private static List<Point> BombLocations = new List<Point>();
 
@@ -62,6 +61,11 @@ namespace MSMSBot.Classes.Window_Interaction
             Nr1 = GrayscaleFilter.Apply(Properties.Resources.Nr1);
             Nr2 = GrayscaleFilter.Apply(Properties.Resources.Nr2);
             Nr3 = GrayscaleFilter.Apply(Properties.Resources.Nr3);
+            Nr4 = GrayscaleFilter.Apply(Properties.Resources.Nr4);
+            Nr5 = GrayscaleFilter.Apply(Properties.Resources.Nr5);
+            Nr6 = GrayscaleFilter.Apply(Properties.Resources.Nr6);
+            Nr7 = GrayscaleFilter.Apply(Properties.Resources.Nr7);
+            Nr8 = GrayscaleFilter.Apply(Properties.Resources.Nr8);
 
             // Get rows and colums:
             GameBoard = GrayscaleFilter.Apply(new Bitmap(ScreenReader.CaptureBoard()));
@@ -100,34 +104,42 @@ namespace MSMSBot.Classes.Window_Interaction
                     {
                         board[h, w] = Square.Three;
                     }
+                    else if (ImageSearch(Nr4, w, h) == 1)
+                    {
+                        board[h, w] = Square.Four;
+                    }
+                    else if (ImageSearch(Nr5, w, h) == 1)
+                    {
+                        board[h, w] = Square.Five;
+                    }
+                    else if (ImageSearch(Nr6, w, h) == 1)
+                    {
+                        board[h, w] = Square.Six;
+                    }
+                    else if (ImageSearch(Nr7, w, h) == 1)
+                    {
+                        board[h, w] = Square.Seven;
+                    }
+                    else if (ImageSearch(Nr8, w, h) == 1)
+                    {
+                        board[h, w] = Square.Eight;
+                    }
                     else
                     {
                         board[h, w] = Square.Unknown;
                         //throw new Exception("No matches found in squere: (" + x + ", " + y + ")");
                     }
-
-
                 }
             }
             //Debug.WriteLine("Nr of things found: " + found, "TestImageRecognition()");
-
 
             foreach (Point p in BombLocations)
             {
                 board[p.X, p.Y] = Square.Bomb;
             }
 
-
-
-
             return board;
         }
-
-
-
-
-
-
 
 
 
@@ -159,11 +171,19 @@ namespace MSMSBot.Classes.Window_Interaction
 
 
         // Clicks a squere on the minesweeper map
-        public static void ClickSquere(bool RightClick, Point Cord)
+        public static void ClickSquere(Point Cord, bool LeftClick = true)
         {
-           //TODO: this
-
+            ClickSquerep(Cord.X, Cord.Y, LeftClick);
         }
+        public static void ClickSquerep(int Row, int Column, bool LeftClick = true)
+        {
+            Rectangle temp = GetRectangle(Column, Row);
+            temp.X += 30 + HalfBlock;
+            temp.Y += 30 + HalfBlock;
+
+            ScreenClicker.ClickOnPoint(ScreenReader.Handle(), new Point(temp.X, temp.Y), LeftClick);
+        }
+
 
         // Adds the cordinates of a squere to the list containgin all cordinates of bombs
         public static void MarkSquereAsBomb(Point bomb)

@@ -100,6 +100,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -129,6 +130,7 @@
     <Compile Include="Classes\AI\MineSweeperCSP.cs" />
     <Compile Include="Classes\AI\MineSweeperConstraints.cs" />
     <Compile Include="Classes\Window Interaction\ScreenCapture.cs" />
+    <Compile Include="Classes\Window Interaction\ScreenClicker.cs" />
     <Compile Include="Classes\Window Interaction\ScreenGateway.cs" />
     <Compile Include="Classes\Window Interaction\ScreenReader.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -163,7 +165,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Nr4.bmp" />
+    <Resource Include="Resources\Nr5.bmp" />
+    <Resource Include="Resources\Nr6.bmp" />
+    <Resource Include="Resources\Nr7.bmp" />
+    <Resource Include="Resources\Nr8.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TestImage.bmp" />
   </ItemGroup>

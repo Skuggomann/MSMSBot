@@ -94,9 +94,9 @@ namespace MSMSBot.Classes.Window_Interaction
             return cropImage(img, cropArea);
         }
 
-        private static IntPtr Handle()
+        public static IntPtr Handle()
         {
-            // Get HS handle:
+            // Get Minesweeper handle:
             Process[] procs = Process.GetProcessesByName("Minesweeper");            
             return procs[0].MainWindowHandle;
         }
