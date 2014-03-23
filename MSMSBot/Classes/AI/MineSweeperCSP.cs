@@ -32,7 +32,7 @@ namespace MSMSBot.Classes.AI
                 for (int row = 0; row < 9; row++)
                 {
                     if(nextToNumber(row,col,board))
-                    variables.Add("point"+ row + "" + col);
+                        variables.Add("point"+ row + "" + col);
                 }
             }
 

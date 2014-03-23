@@ -30,9 +30,6 @@ namespace MSMSBot.Classes.AI
             {
                 for (int row = 0; row < 9; row++)
                 {
-                    try
-                    {
-
                     switch (m_board[row,col])
                     {
                         case ScreenGateway.Square.One:
@@ -111,17 +108,14 @@ namespace MSMSBot.Classes.AI
                         default:
                             break;
                     }
-
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                    }
                 }
             }
         }
 
         public bool legalMove(int row, int col)
         {
+            if (row < 0 || row >= 9 || col < 0 || col >= 9)
+                return false;
             m_board[row, col] = ScreenGateway.Square.Bomb;
             drasl = new MineSweeperCSP().getMap(m_board);
             Assignment result = drasl.backTrackingSearch();
