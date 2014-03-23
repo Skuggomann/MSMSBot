@@ -47,6 +47,7 @@ namespace MSMSBot.Classes.Window_Interaction
             ClickOnPoint(WindowHandle, ClientPoint, true);
         }
 
+        // http://stackoverflow.com/questions/10355286/programmatically-mouse-click-in-another-window
         public static void ClickOnPoint(IntPtr WindowHandle, Point ClientPoint, bool LeftClick)
         {
             var oldPos = Cursor.Position;
@@ -73,7 +74,7 @@ namespace MSMSBot.Classes.Window_Interaction
             }            
              
             // return mouse to old position
-            //Cursor.Position = oldPos;
+            //Cursor.Position = oldPos; //TODO: uncommenta þetta þegar búið er að búa til forritið
         }
 
 

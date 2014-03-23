@@ -25,8 +25,8 @@ namespace MSMSBot.Classes.Window_Interaction
 
         private static List<Point> BombLocations = new List<Point>();
 
-        public static int H = 9;
-        public static int W = 9;
+        public static int H;
+        public static int W;
 
         private static System.Drawing.Bitmap GameBoard;
         private static ExhaustiveTemplateMatching tm = new ExhaustiveTemplateMatching(0.9f);
@@ -70,8 +70,8 @@ namespace MSMSBot.Classes.Window_Interaction
             // Get rows and colums:
             GameBoard = GrayscaleFilter.Apply(new Bitmap(ScreenReader.CaptureBoard()));
 
-            H = (GameBoard.Height - 1) / BlockHeight;
-            W = (GameBoard.Width - 1) / BlockHeight;
+            H = (GameBoard.Height + 1) / BlockHeight;
+            W = (GameBoard.Width + 1) / BlockHeight;
 
             Debug.WriteLine("[" + H + " x " + W + "]", "Board dimensions");
         }
