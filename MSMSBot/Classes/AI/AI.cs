@@ -129,7 +129,8 @@ namespace MSMSBot.Classes.AI
 
         public void makeMove(int row, int col)
         {
-            ScreenGateway.ClickSquere(row, col);
+            Debug.WriteLine("I want to click point"+row+col);
+            //ScreenGateway.ClickSquere(row, col);
         }
 
         public void nextMove()

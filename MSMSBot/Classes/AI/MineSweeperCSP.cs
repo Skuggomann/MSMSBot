@@ -5,6 +5,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace MSMSBot.Classes.AI
 {
@@ -31,7 +32,8 @@ namespace MSMSBot.Classes.AI
             {
                 for (int row = 0; row < 9; row++)
                 {
-                    if(nextToNumber(row,col,board))
+
+                    if ((nextToNumber(row, col, board) && isUnknown(row,col,board)) || isBomb(row,col,board))
                         variables.Add("point"+ row + "" + col);
                 }
             }
@@ -43,6 +45,8 @@ namespace MSMSBot.Classes.AI
                 string variable = variables[i].ToString();
                 domains.addToDomain(variable, "0");
                 domains.addToDomain(variable, "1");
+
+                Debug.WriteLine(variable);
             }
 
 
@@ -95,6 +99,25 @@ namespace MSMSBot.Classes.AI
                 board[row,col] == ScreenGateway.Square.Six      ||
                 board[row,col] == ScreenGateway.Square.Seven    ||
                 board[row,col] == ScreenGateway.Square.Eight)
+                return true;
+            return false;
+        }
+        private bool isUnknown(int row, int col, ScreenGateway.Square[,] board)
+        {
+            if (row < 0 || row >= 9 || col < 0 || col >= 9)
+                return false;
+
+            if (board[row, col] == ScreenGateway.Square.Unknown)
+                return true;
+            return false;
+        }
+
+        private bool isBomb(int row, int col, ScreenGateway.Square[,] board)
+        {
+            if (row < 0 || row >= 9 || col < 0 || col >= 9)
+                return false;
+
+            if (board[row, col] == ScreenGateway.Square.Bomb)
                 return true;
             return false;
         }
