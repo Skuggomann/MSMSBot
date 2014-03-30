@@ -193,6 +193,7 @@ namespace MSMSBot.Classes.AI2
 
         }
 
+        // This is the constraint that removes bomb from empty spaces that violate the constrait of being close to a number that alreddy has that ammount of bombs
         private Variable[,] Constraint1(int x, int y, Variable[,] A)
         {
             int number = (int)A[x, y].Value;
@@ -222,6 +223,7 @@ namespace MSMSBot.Classes.AI2
             return A;
         }
 
+        // Counts how many bombs are around 
         private int BombsAround(int row, int col, Variable[,] A)
         {
             int bombs = 0;
@@ -243,10 +245,6 @@ namespace MSMSBot.Classes.AI2
                     }
                 }
             }
-
-
-
-
             return bombs;
         }
 
