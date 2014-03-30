@@ -9,8 +9,8 @@ namespace MSMSBot.Classes.AI
 {
     class MineSweeperConstraints : Constraint
     {
-        ScreenGateway.Square[,] m_board;
-        public MineSweeperConstraints(ScreenGateway.Square[,] board)
+        Square[,] m_board;
+        public MineSweeperConstraints(Square[,] board)
         {
             m_board = board;
         }
@@ -28,63 +28,63 @@ namespace MSMSBot.Classes.AI
 
                     switch (m_board[row,col])
                     {
-                        case ScreenGateway.Square.Empty:
+                        case Square.Empty:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 0)
                                 return false;
                             break;
-                        case ScreenGateway.Square.One:
+                        case Square.One:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 1)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Two:
+                        case Square.Two:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 2)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Three:
+                        case Square.Three:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 3)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Four:
+                        case Square.Four:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 4)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Five:
+                        case Square.Five:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 5)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Six:
+                        case Square.Six:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 6)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Seven:
+                        case Square.Seven:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 7)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Eight:
+                        case Square.Eight:
                             if (Bomb(p, a2))
                                 return false;
                             if (BombsAround(row, col, a2) != 8)
                                 return false;
                             break;
-                        case ScreenGateway.Square.Unknown:
+                        case Square.Unknown:
                             break;
-                        case ScreenGateway.Square.Bomb:
+                        case Square.Bomb:
                             if (!Bomb(p, a2))
                                 return false;
                             break;
@@ -99,63 +99,63 @@ namespace MSMSBot.Classes.AI
             {
                 switch (getSquare(p))
                 {
-                    case ScreenGateway.Square.Empty:
+                    case Square.Empty:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) != 0)
                             return false;
                         break;
-                    case ScreenGateway.Square.One:
+                    case Square.One:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 1)
                             return false;
                         break;
-                    case ScreenGateway.Square.Two:
+                    case Square.Two:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 2)
                             return false;
                         break;
-                    case ScreenGateway.Square.Three:
+                    case Square.Three:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 3)
                             return false;
                         break;
-                    case ScreenGateway.Square.Four:
+                    case Square.Four:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 4)
                             return false;
                         break;
-                    case ScreenGateway.Square.Five:
+                    case Square.Five:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 5)
                             return false;
                         break;
-                    case ScreenGateway.Square.Six:
+                    case Square.Six:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 6)
                             return false;
                         break;
-                    case ScreenGateway.Square.Seven:
+                    case Square.Seven:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 7)
                             return false;
                         break;
-                    case ScreenGateway.Square.Eight:
+                    case Square.Eight:
                         if (Bomb(p, a2))
                             return false;
                         if (BombsAround(p, a2) <= 8)
                             return false;
                         break;
-                    case ScreenGateway.Square.Unknown:
+                    case Square.Unknown:
                         break;
-                    case ScreenGateway.Square.Bomb:
+                    case Square.Bomb:
                         if (!Bomb(p, a2))
                             return false;
                         break;
@@ -166,63 +166,63 @@ namespace MSMSBot.Classes.AI
             string p = variable;
             switch (getSquare(p))
             {
-                case ScreenGateway.Square.Empty:
+                case Square.Empty:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) != 0)
                         return false;
                     break;
-                case ScreenGateway.Square.One:
+                case Square.One:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 1)
                         return false;
                     break;
-                case ScreenGateway.Square.Two:
+                case Square.Two:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 2)
                         return false;
                     break;
-                case ScreenGateway.Square.Three:
+                case Square.Three:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 3)
                         return false;
                     break;
-                case ScreenGateway.Square.Four:
+                case Square.Four:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 4)
                         return false;
                     break;
-                case ScreenGateway.Square.Five:
+                case Square.Five:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 5)
                         return false;
                     break;
-                case ScreenGateway.Square.Six:
+                case Square.Six:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 6)
                         return false;
                     break;
-                case ScreenGateway.Square.Seven:
+                case Square.Seven:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 7)
                         return false;
                     break;
-                case ScreenGateway.Square.Eight:
+                case Square.Eight:
                     if (Bomb(p, a2))
                         return false;
                     if (BombsAround(p, a2) <= 8)
                         return false;
                     break;
-                case ScreenGateway.Square.Unknown:
+                case Square.Unknown:
                     break;
-                case ScreenGateway.Square.Bomb:
+                case Square.Bomb:
                     if (!Bomb(p, a2))
                         return false;
                     break;
@@ -327,7 +327,7 @@ namespace MSMSBot.Classes.AI
             return "point" + row + "" + col;
         }
 
-        private ScreenGateway.Square getSquare(string point)
+        private Square getSquare(string point)
         {
             int row = int.Parse(point.Substring(5,1));
             int col = int.Parse(point.Substring(6,1));

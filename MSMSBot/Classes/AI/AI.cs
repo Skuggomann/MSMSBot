@@ -12,7 +12,7 @@ namespace MSMSBot.Classes.AI
     class AI
     {
         CSP drasl;
-        ScreenGateway.Square[,] m_board;
+        Square[,] m_board;
         public AI()
         {
             m_board = ScreenGateway.GetBoardLayout();
@@ -32,14 +32,14 @@ namespace MSMSBot.Classes.AI
                 {
                     switch (m_board[row,col])
                     {
-                        case ScreenGateway.Square.One:
-                        case ScreenGateway.Square.Two:
-                        case ScreenGateway.Square.Three:
-                        case ScreenGateway.Square.Four:
-                        case ScreenGateway.Square.Five:
-                        case ScreenGateway.Square.Six:
-                        case ScreenGateway.Square.Seven:
-                        case ScreenGateway.Square.Eight:
+                        case Square.One:
+                        case Square.Two:
+                        case Square.Three:
+                        case Square.Four:
+                        case Square.Five:
+                        case Square.Six:
+                        case Square.Seven:
+                        case Square.Eight:
                             //NW
                             if (isUnknown(row - 1, col - 1))
                             {
@@ -116,12 +116,12 @@ namespace MSMSBot.Classes.AI
         {
             if (row < 0 || row >= 9 || col < 0 || col >= 9)
                 return false;
-            m_board[row, col] = ScreenGateway.Square.Bomb;
+            m_board[row, col] = Square.Bomb;
             drasl = new MineSweeperCSP().getMap(m_board);
             Assignment result = drasl.backTrackingSearch();
             if(result != null)
                 Debug.WriteLine(result.ToString());
-            m_board[row, col] = ScreenGateway.Square.Unknown;
+            m_board[row, col] = Square.Unknown;
             if (result == null)
                 return true;
             return false;
@@ -142,7 +142,7 @@ namespace MSMSBot.Classes.AI
             if (row < 0 || row >= 9 || col < 0 || col >= 9)
                 return false;
 
-            if (m_board[row, col] == ScreenGateway.Square.Unknown)
+            if (m_board[row, col] == Square.Unknown)
                 return true;
             return false;
         }

@@ -9,6 +9,8 @@ using System.Diagnostics;
 
 namespace MSMSBot.Classes.Window_Interaction
 {
+    public enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Unknown, Bomb };
+
     static class ScreenGateway
     {
         private static int BlockHeight = 18;
@@ -49,8 +51,7 @@ namespace MSMSBot.Classes.Window_Interaction
         }
         */
 
-        public enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Unknown, Bomb};
-
+        
 
         static ScreenGateway()
         { 

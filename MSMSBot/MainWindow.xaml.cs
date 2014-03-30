@@ -1,4 +1,5 @@
 ﻿using MSMSBot.Classes.AI;
+using MSMSBot.Classes.AI2;
 using MSMSBot.Classes.Window_Interaction;
 using System;
 using System.Collections.Generic;
@@ -47,8 +48,15 @@ namespace MSMSBot
 
         private void btnCSPClick(object sender, RoutedEventArgs e)
         {
+            /*
             AI test = new AI();
             test.nextMove();
+             */
+
+            AC3 TA = new AC3();
+
+            TA.dostuff();
+
         }
     }
 }

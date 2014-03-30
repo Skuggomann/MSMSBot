@@ -24,7 +24,7 @@ namespace MSMSBot.Classes.AI
             //wat
         }
 
-        public CSP getMap(ScreenGateway.Square[,] board)
+        public CSP getMap(Square[,] board)
         {
 
             ArrayList variables = new ArrayList();
@@ -57,7 +57,7 @@ namespace MSMSBot.Classes.AI
             return instance;
         }
 
-        private bool nextToNumber(int row, int col, ScreenGateway.Square[,] board)
+        private bool nextToNumber(int row, int col, Square[,] board)
         {
             //NW
             if (isNumber(row - 1, col - 1, board))
@@ -86,38 +86,38 @@ namespace MSMSBot.Classes.AI
 
             return false;
         }
-        private bool isNumber(int row, int col, ScreenGateway.Square[,] board)
+        private bool isNumber(int row, int col, Square[,] board)
         {
             if (row < 0 || row >= 9 || col < 0 || col >= 9)
                 return false;
 
-            if( board[row,col] == ScreenGateway.Square.One      ||
-                board[row,col] == ScreenGateway.Square.Two      ||
-                board[row,col] == ScreenGateway.Square.Three    ||
-                board[row,col] == ScreenGateway.Square.Four     ||
-                board[row,col] == ScreenGateway.Square.Five     ||
-                board[row,col] == ScreenGateway.Square.Six      ||
-                board[row,col] == ScreenGateway.Square.Seven    ||
-                board[row,col] == ScreenGateway.Square.Eight)
+            if( board[row,col] == Square.One      ||
+                board[row,col] == Square.Two      ||
+                board[row,col] == Square.Three    ||
+                board[row,col] == Square.Four     ||
+                board[row,col] == Square.Five     ||
+                board[row,col] == Square.Six      ||
+                board[row,col] == Square.Seven    ||
+                board[row,col] == Square.Eight)
                 return true;
             return false;
         }
-        private bool isUnknown(int row, int col, ScreenGateway.Square[,] board)
+        private bool isUnknown(int row, int col, Square[,] board)
         {
             if (row < 0 || row >= 9 || col < 0 || col >= 9)
                 return false;
 
-            if (board[row, col] == ScreenGateway.Square.Unknown)
+            if (board[row, col] == Square.Unknown)
                 return true;
             return false;
         }
 
-        private bool isBomb(int row, int col, ScreenGateway.Square[,] board)
+        private bool isBomb(int row, int col, Square[,] board)
         {
             if (row < 0 || row >= 9 || col < 0 || col >= 9)
                 return false;
 
-            if (board[row, col] == ScreenGateway.Square.Bomb)
+            if (board[row, col] == Square.Bomb)
                 return true;
             return false;
         }
