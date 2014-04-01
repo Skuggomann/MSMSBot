@@ -74,7 +74,8 @@ namespace MSMSBot.Classes.Window_Interaction
             }            
              
             // return mouse to old position
-            //Cursor.Position = oldPos; //TODO: uncommenta þetta þegar búið er að búa til forritið
+            System.Threading.Thread.Sleep(50);
+            Cursor.Position = oldPos;
         }
 
 

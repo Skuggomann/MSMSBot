@@ -42,9 +42,9 @@ namespace MSMSBot.Classes.AI2
             DomainEmpty.Add(Square.Empty);
         }
 
-        
 
-        public bool dostuff()
+
+        public string Run()
         {
             Square[,] Board = ScreenGateway.GetBoardLayout();
             Variable[,] Assigned = new Variable[ScreenGateway.H, ScreenGateway.W];
@@ -83,11 +83,11 @@ namespace MSMSBot.Classes.AI2
             {
                 Debug.WriteLine("No answere found."); 
             }
-            
 
 
 
-            return false;
+
+            return BoardToString(answer);
         }
 
         public Variable[,] CSPBACKTRACKING(Variable[,] A)
@@ -301,7 +301,15 @@ namespace MSMSBot.Classes.AI2
             {
                 for (int j = 0; j < ScreenGateway.W; j++)
                 {
-                    s += "[" + (int)arr[i, j].Value + "] ";
+                    int val = (int)arr[i, j].Value;
+                    if (val == 10)
+                    {
+                        s += "[B] ";
+                    }
+                    else
+                    {
+                        s += "[" + val + "] ";
+                    }
                 }
                 s += "\n";
             }

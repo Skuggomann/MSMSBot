@@ -55,8 +55,12 @@ namespace MSMSBot
 
             AC3 TA = new AC3();
 
-            TA.dostuff();
+            CSPText.Text = TA.Run();
+        }
 
+        private void Click_2_3(object sender, RoutedEventArgs e)
+        {
+            ScreenGateway.ClickSquere(2, 3);
         }
     }
 }
