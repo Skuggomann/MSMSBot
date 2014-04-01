@@ -68,9 +68,11 @@ namespace MSMSBot.Classes.AI2
                     }    
                 }
             }
-            //Assigned[8, 8].Domain = new List<Square>(); //for testing with empty domains.
+
 
             Debug.WriteLine(BoardToString(Assigned));
+
+            // Add a bomb here to test if that spot does not contain a bomb (if CSP returns null)
 
             var answer = CSPBACKTRACKING(Assigned);
             if (answer != null)
@@ -187,6 +189,8 @@ namespace MSMSBot.Classes.AI2
                 }
             }
             
+            // Do constraint2 (total bombs == bombs on board)
+
 
             return A;
 
