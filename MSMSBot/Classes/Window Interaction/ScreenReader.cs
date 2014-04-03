@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 
 namespace MSMSBot.Classes.Window_Interaction
 {
+    // This class handles getting an Bitmap image from minesweeper and procesing it.
     class ScreenReader
     {
         private static ScreenCapture sc = new ScreenCapture();
@@ -19,11 +20,10 @@ namespace MSMSBot.Classes.Window_Interaction
             
         }
 
+        // Testfunction
         public static void CaptureWindow(MainWindow W)
         {
-            // Testfunction
-
-            
+                        
             // capture entire screen
             //Image img = sc.CaptureScreen();
             Image img = sc.CaptureWindow(Handle());
@@ -36,11 +36,14 @@ namespace MSMSBot.Classes.Window_Interaction
             //sc.CaptureWindowToFile(Handle(), "C:\\HSScreen.bmp", ImageFormat.Bmp);
         }
 
+
+        // Captures the entire window using the Minesweeper handle
         public static Image CaptureWindow()
         {
             return sc.CaptureWindow(Handle());
         }
 
+        // Captures the window and then crops out the board itself
         public static Image CaptureBoard()
         {
             System.Drawing.Image GameScreen = ScreenReader.CaptureWindow();
@@ -55,6 +58,7 @@ namespace MSMSBot.Classes.Window_Interaction
             return cropImage(GameScreen, r);
         }
 
+        // Some function to change a Image to a bitmap stream (to display them on the screen for debugging)
         public static BitmapSource GetImageStream(Image myImage)
         {
             var bitmap = new Bitmap(myImage);
@@ -77,6 +81,7 @@ namespace MSMSBot.Classes.Window_Interaction
         internal static extern bool DeleteObject(IntPtr value);
 
 
+        // Helper function to crop Images
         public static Image cropImage(Image img, Rectangle cropArea)
         {
             Bitmap bmpImage = new Bitmap(img);
@@ -84,6 +89,7 @@ namespace MSMSBot.Classes.Window_Interaction
             return (Image)(bmpCrop);
         }
 
+        // Helper function to crop away the windows frame (depricated i think)
         private static Image cropWindowFrame(Image img)
         {
             int BorderTop = 25;
@@ -94,6 +100,7 @@ namespace MSMSBot.Classes.Window_Interaction
             return cropImage(img, cropArea);
         }
 
+        // Gets the window handle of minesweeper
         public static IntPtr Handle()
         {
             // Get Minesweeper handle:

@@ -9,6 +9,7 @@ using aima.search.csp;
 using System.Diagnostics;
 namespace MSMSBot.Classes.AI
 {
+    // The first atempt, we did not get it to work
     class AI
     {
         CSP drasl;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MSMSBot.Classes.AI2
 {
+    // This is the CSP algirythem, do not get confused by its name (i could not think of one)
     class AC3
     {
         public struct Variable
@@ -26,8 +27,7 @@ namespace MSMSBot.Classes.AI2
             }            
         }
 
-        //private enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Unknown, Bomb};
-
+        // These are the three possible domains of variables
         List<Square> DomainBoth = new List<Square>();
         List<Square> DomainBomb = new List<Square>();
         List<Square> DomainEmpty = new List<Square>();
@@ -43,12 +43,14 @@ namespace MSMSBot.Classes.AI2
         }
 
 
-
+        // Function to start the algorythem
         public string Run()
         {
             Square[,] Board = ScreenGateway.GetBoardLayout();
             Variable[,] Assigned = new Variable[ScreenGateway.H, ScreenGateway.W];
             
+
+            // fills the array Assigned with variables and their domains.
             for (int h = 0; h < ScreenGateway.H; h++)
             {
                 for (int w = 0; w < ScreenGateway.W; w++)
@@ -87,9 +89,12 @@ namespace MSMSBot.Classes.AI2
 
 
 
-            return BoardToString(answer);
+            return BoardToString(answer); // Returns the board position (as a string for now for debug purposes)
         }
 
+
+        // This is the CSP algorythem, it is implemented by copying the psudocode from the class slides and implementing it from them
+        // P.S. the variables that have been asigned and those who havent are both stored in the array A
         public Variable[,] CSPBACKTRACKING(Variable[,] A)
         {
             //If assignment A is complete then return A
@@ -100,7 +105,7 @@ namespace MSMSBot.Classes.AI2
 
             //2. Run AC3 and update var-domains accordingly
             //3. If a variable has an empty domain then return failure
-
+            AC3Alogrythem();
 
             //4. X  select a variable not in A
             Variable X = new Variable(Square.Empty,DomainEmpty, new Point(-1,-1));
@@ -158,6 +163,13 @@ namespace MSMSBot.Classes.AI2
             //return A;
         }
 
+        // AC3 part of the function
+        private void AC3Alogrythem()
+        { 
+            // Needs constraints
+        }
+
+        // The forward chekking part of the algorythem (this needs 
         private Variable[,] forwardChecking(Variable X, Square v, Variable[,] A)
         {
             /*
@@ -182,7 +194,7 @@ namespace MSMSBot.Classes.AI2
                     {
                         A = Constraint1(X.index.X + i, X.index.Y + j, A);
                     }
-                    catch (IndexOutOfRangeException e)
+                    catch (IndexOutOfRangeException e) // Shitty fix for the lazy
                     {
 
                     }
@@ -254,7 +266,6 @@ namespace MSMSBot.Classes.AI2
 
 
 
-
         private void selectVariableNotInA(Variable[,] Board, ref Variable X)
         {
             foreach (var S in Board)
@@ -269,6 +280,8 @@ namespace MSMSBot.Classes.AI2
             //return new Point(-1,-1);
         }
 
+
+        // Checks if there are variables that are unknown, if there are no unknown variables all variables have bin asigned
         private Boolean assignmentCompliet(Variable[,] Board)
         {
             int CountUnknown = 0;
@@ -281,6 +294,8 @@ namespace MSMSBot.Classes.AI2
 	        }
             return CountUnknown == 0;
         }
+
+        // Checks if there is a variable with a empty domain
         private Boolean noDomainsEmpty(Variable[,] Board)
         {
             foreach (var S in Board)
@@ -304,7 +319,7 @@ namespace MSMSBot.Classes.AI2
                     int val = (int)arr[i, j].Value;
                     if (val == 10)
                     {
-                        s += "[B] ";
+                        s += "[B] "; // doing this becouse a bomb is 10 in int and that fuckes up the allignment of the text
                     }
                     else
                     {

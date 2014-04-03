@@ -8,7 +8,7 @@ using System.Drawing.Imaging;
 
 namespace MSMSBot.Classes.Window_Interaction
 {
-    //http://www.developerfusion.com/code/4630/capture-a-screen-shot/
+    //Screen caputre library from: http://www.developerfusion.com/code/4630/capture-a-screen-shot/
 
     /// <summary>
     /// Provides functions to capture the entire screen, or a particular window, and save it to a file.

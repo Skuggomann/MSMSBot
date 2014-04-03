@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace MSMSBot.Classes.Window_Interaction
 {
+    // This class does all the screen clikcing for us.
+    // Constructed with the help of http://stackoverflow.com/questions/10355286/programmatically-mouse-click-in-another-window but i alos expanded on it.
+
     class ScreenClicker
     {
         [DllImport("user32.dll")]
@@ -47,7 +50,7 @@ namespace MSMSBot.Classes.Window_Interaction
             ClickOnPoint(WindowHandle, ClientPoint, true);
         }
 
-        // http://stackoverflow.com/questions/10355286/programmatically-mouse-click-in-another-window
+        
         public static void ClickOnPoint(IntPtr WindowHandle, Point ClientPoint, bool LeftClick)
         {
             var oldPos = Cursor.Position;
@@ -55,13 +58,14 @@ namespace MSMSBot.Classes.Window_Interaction
             // get screen coordinates
             ClientToScreen(WindowHandle, ref ClientPoint);
 
-            // set cursor on coords, and press mouse
+            // move the cursor to the desired cordinates
             Cursor.Position = new Point(ClientPoint.X, ClientPoint.Y);
 
-            // Get focus
+            // Set focus to the window (to bring it into the forground and to accept clicks)
             SetForegroundWindow(WindowHandle);
             System.Threading.Thread.Sleep(5); // 5ms delay between sending the focus command and sending the mouse click
              
+            // Make a left or a right lick
             if (LeftClick)
             {
                 mouse_event((int)MouseEventFlags.LEFTDOWN, 0, 0, 0, UIntPtr.Zero); // left mouse button down

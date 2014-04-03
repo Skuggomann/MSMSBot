@@ -9,16 +9,20 @@ using System.Diagnostics;
 
 namespace MSMSBot.Classes.Window_Interaction
 {
+    // Enum for better keeping track of what number stands for what squere.
     public enum Square : int { Empty = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Unknown, Bomb };
 
+
+    // This class is the interface used to interact with the minesweeper program.
     static class ScreenGateway
     {
         private static int BlockHeight = 18;
         private static int HalfBlock = BlockHeight / 2;
 
-        // create filter
+        // Create filter, this is required becouse AForge cannot do searches on
         private static AForge.Imaging.Filters.Grayscale GrayscaleFilter = new AForge.Imaging.Filters.GrayscaleBT709();
 
+        // Bitmaps of each image used in the image recongition
         private static Bitmap Clicked;
         private static Bitmap UnClicked;
         private static Bitmap Flag;
@@ -27,11 +31,12 @@ namespace MSMSBot.Classes.Window_Interaction
 
         private static List<Point> BombLocations = new List<Point>();
 
+        // height and with of the board (this is cells as in 9x9 for easy)
         public static int H;
         public static int W;
 
         private static System.Drawing.Bitmap GameBoard;
-        private static ExhaustiveTemplateMatching tm = new ExhaustiveTemplateMatching(0.9f);
+        private static ExhaustiveTemplateMatching tm = new ExhaustiveTemplateMatching(0.9f); // The image recognition function
 
         /*
          * //Depricated:
@@ -77,6 +82,7 @@ namespace MSMSBot.Classes.Window_Interaction
             Debug.WriteLine("[" + H + " x " + W + "]", "Board dimensions");
         }
 
+        // This function returnes a double array of integers representing the state of minesweeper
         public static Square[,] GetBoardLayout()
         {
             // Capture board and apply filter
@@ -84,6 +90,8 @@ namespace MSMSBot.Classes.Window_Interaction
 
             Square[,] board = new Square[H, W];  
 
+
+            // This part goes through every cell and searches if it contains an image, if none are found it is classifyed as unknown(unclicked squere)
             for (int h = 0; h < H; h++)
             {
                 for (int w = 0; w < W; w++)
@@ -134,16 +142,18 @@ namespace MSMSBot.Classes.Window_Interaction
             }
             //Debug.WriteLine("Nr of things found: " + found, "TestImageRecognition()");
 
+
+            // Bomb locations are remembered and added after the board is set.
             foreach (Point p in BombLocations)
             {
-                board[p.X, p.Y] = Square.Bomb;
+                board[p.X, p.Y] = Square.Bomb; 
             }
 
             return board;
         }
 
 
-
+        // Helper function
         static int ImageSearch(Bitmap Template, int X, int Y)
         {
             TemplateMatch[] matchings = tm.ProcessImage(GameBoard, Template, GetRectangle(X, Y));
@@ -204,7 +214,7 @@ namespace MSMSBot.Classes.Window_Interaction
         }
 
 
-        // Converts a Square array into a string.
+        // Converts a Square array into a string. (for debugging purpouses)
         public static String BoardToString(Square[,] arr)
         {
             string s = "";
